@@ -1,0 +1,169 @@
+# set modifier
+set $super Mod4
+set $alt Mod1
+
+# set font
+font pango: Noto Sans 8
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+# autostart
+exec --no-startup-id xsettingsd
+exec --no-startup-id picom -b
+exec --no-startup-id nm-applet
+exec --no-startup-id psensor
+
+# start a terminal
+bindsym $super+Return exec i3-sensible-terminal
+
+# start dmenu (a program launcher)
+bindsym $super+d        exec rofi -show drun -sidebar-mode
+bindsym $super+Shift+q  exec rofi -show power-menu -modi power-menu:rofi-power-menu
+bindsym $super+s        exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym $super+Shift+s  exec --no-startup-id ~/.config/rofi/clear.sh
+
+# common apps keybinds
+bindsym Print exec scrot 'Pictures/Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
+bindsym $super+shift+l exec betterlockscreen -l dimblur --off 5
+
+# Volume control
+set $volumepath i3-volume
+set $statuscmd i3status
+set $statussig SIGUSR1
+set $volumestep 5
+bindsym $super+period   exec --no-startup-id $volumepath -nP -x 100 -t $statuscmd -u $statussig up $volumestep
+bindsym $super+comma    exec --no-startup-id $volumepath -nP -x 100 -t $statuscmd -u $statussig down $volumestep
+bindsym $super+m        exec --no-startup-id $volumepath -nP -x 100 -t $statuscmd -u $statussig mute
+
+# kill focused window
+bindsym $super+c kill
+bindsym $alt+F4 kill
+
+# change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $super+p layout stacking
+bindsym $super+o layout tabbed
+bindsym $super+i layout toggle split
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+# switch to workspace
+bindsym $alt+Control+Right workspace next
+bindsym $alt+Control+Left workspace prev
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
+
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+bindsym $super+Shift+0 move container to workspace 10
+
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+e restart
+
+# reload i3 configuration
+bindsym $super+w reload
+
+# exit i3
+bindsym $super+q exec "i3-nagbar -t warning -m 'Exit from this session?' -b 'Yes' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "Resize" {
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Return mode "default"
+}
+bindsym $super+r mode "Resize"
+
+# panel
+bar {
+        colors {
+        background  #2e3440
+        statusline  #2e3440
+        separator   #81a1c1
+
+        # colour of border, background, and text
+        focused_workspace       #2e3440 #81a1c1 #d8dee9
+        active_workspace        #2e3440 #81a1c1 #d8dee9
+        inactive_workspace      #2e3440 #2e3440 #d8dee9
+        urgent_workspace        #81a1c1 #2e3440 #d8dee9
+    }
+        font pango: Noto Sans 8
+        position top
+        status_command i3status
+}
+
+# window rules, you can find the window class using xprop
+for_window [class=Viewnior|Lxappearance|Pavucontrol|SimpleScreenRecorder|Bvnc|Nm-connection-editor|Xarchiver|Libfm-pref-apps] floating enable
+for_window [title=lstopo] floating enable
+for_window [class="^.*"] title_format "  %title"
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+title_align left
+default_border pixel 3
+default_floating_border pixel 3
+focus_follows_mouse no
+
+# like minimize window
+bindsym $super+k move scratchpad
+bindsym $super+l scratchpad show
+
+# title and border
+bindsym $super+Shift+t border normal 0
+bindsym $super+t       border normal 1
+bindsym $super+Shift+y border pixel  3
+bindsym $super+y       border none
+
+# colour of border, background, text, indicator, and child_border
+client.focused              #81a1c1 #2e3440 #d8dee9 #d8dee9 #81a1c1
+client.focused_inactive     #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
+client.unfocused            #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
+client.urgent               #2e3440 #2e3440 #d8dee9 #2e3440 #2e3440
+client.placeholder          #81a1c1 #2e3440 #d8dee9 #2e3440 #81a1c1
+client.background           #2e3440
+
+# Gaps
+gaps inner 20
