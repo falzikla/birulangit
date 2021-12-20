@@ -17,14 +17,16 @@ exec --no-startup-id psensor
 # start a terminal
 bindsym $super+Return exec i3-sensible-terminal
 
-# start dmenu (a program launcher)
+# start rofi launcher
 bindsym $super+d        exec rofi -show drun -sidebar-mode
 bindsym $super+Shift+q  exec rofi -show power-menu -modi power-menu:rofi-power-menu
+
+# greenclip
 bindsym $super+s        exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $super+Shift+s  exec --no-startup-id ~/.config/rofi/clear.sh
 
 # common apps keybinds
-bindsym Print exec scrot 'Pictures/Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
+bindsym Print exec scrot 'Pictures/Screenshot_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
 bindsym $super+shift+l exec betterlockscreen -l dimblur --off 5
 
 # Volume control
@@ -154,8 +156,8 @@ bindsym $super+l scratchpad show
 # title and border
 bindsym $super+Shift+t border normal 0
 bindsym $super+t       border normal 1
-bindsym $super+Shift+y border pixel  3
-bindsym $super+y       border none
+bindsym $super+Shift+y border none
+bindsym $super+y       border pixel  3
 
 # colour of border, background, text, indicator, and child_border
 client.focused              #81a1c1 #2e3440 #d8dee9 #d8dee9 #81a1c1
