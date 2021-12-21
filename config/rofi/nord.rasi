@@ -48,6 +48,7 @@ window {
     background-color: @background;
     border:           3;
     padding:          15;
+    /*width:          700px;*/
 }
 
 mainbox {
@@ -72,7 +73,7 @@ listview {
     border-color: @separatorcolor;
     spacing:      3px;
     scrollbar:    @scrollbar;
-    /*lines:        12;*/
+    /*lines:        8;*/
     /*columns:      3;*/
 }
 

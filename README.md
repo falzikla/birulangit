@@ -24,10 +24,12 @@ Depedencies
 - unzip
 - psensor
 - nm-applet
+- pyhton-gobject
+- polkit-gnome
 
 Install Depedencies
 ```
-sudo pacman -S rofi i3-gaps i3status picom hsetroot rxvt-unicode xsel noto-fonts xsettingsd lxappearance scrot viewnior feh git unzip network-manager-applet psensor
+sudo pacman -S polkit-gnome rofi i3-gaps i3status picom hsetroot rxvt-unicode xsel noto-fonts xsettingsd lxappearance scrot viewnior feh git unzip network-manager-applet psensor python-gobject
 ```
 ```
 yay -S greenclip betterlockscreen i3lock-color
@@ -122,3 +124,4 @@ Keybinds
 - Super + Shift + T, No border just name program
 - Super + Y, border (Default)
 - Super + Shift Y, Border None
+- Super + N, Open internet connection

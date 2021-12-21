@@ -40,6 +40,7 @@ fi
 
 betterlockscreen -w dim
 numlockx &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xset s off
 xset dpms 0 0 300
 exec i3

@@ -11,8 +11,7 @@ floating_modifier $super
 # autostart
 exec --no-startup-id xsettingsd
 exec --no-startup-id picom -b
-exec --no-startup-id nm-applet
-exec --no-startup-id psensor
+exec --no-startup-id systemctl start --user greenclip.service
 
 # start a terminal
 bindsym $super+Return exec i3-sensible-terminal
@@ -20,6 +19,7 @@ bindsym $super+Return exec i3-sensible-terminal
 # start rofi launcher
 bindsym $super+d        exec rofi -show drun -sidebar-mode
 bindsym $super+Shift+q  exec rofi -show power-menu -modi power-menu:rofi-power-menu
+bindsym $super+n        exec python3 ~/.config/rofi/nmcli_rofi
 
 # greenclip
 bindsym $super+s        exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
@@ -125,7 +125,7 @@ bar {
         colors {
         background  #2e3440
         statusline  #2e3440
-        separator   #81a1c1
+        separator   #d8dee9
 
         # colour of border, background, and text
         focused_workspace       #2e3440 #81a1c1 #d8dee9
@@ -135,6 +135,7 @@ bar {
     }
         font pango: Noto Sans 8
         position top
+        tray_output none
         status_command i3status
 }
 
