@@ -26,13 +26,14 @@ Depedencies
 - nm-applet
 - pyhton-gobject
 - polkit-gnome
+- ttf-icomoon-feather
 
 Install Depedencies
 ```
 sudo pacman -S polkit-gnome rofi i3-gaps i3status picom hsetroot rxvt-unicode xsel noto-fonts xsettingsd lxappearance scrot viewnior feh git unzip network-manager-applet psensor python-gobject
 ```
 ```
-yay -S greenclip betterlockscreen i3lock-color
+yay -S greenclip betterlockscreen i3lock-color ttf-icomoon-feather
 ```
 
 Install Configuration

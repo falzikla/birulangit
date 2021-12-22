@@ -17,8 +17,9 @@ exec --no-startup-id systemctl start --user greenclip.service
 bindsym $super+Return exec i3-sensible-terminal
 
 # start rofi launcher
-bindsym $super+d        exec rofi -show drun -sidebar-mode
-bindsym $super+Shift+q  exec rofi -show power-menu -modi power-menu:rofi-power-menu
+#bindsym $super+d        exec rofi -show drun -sidebar-mode
+bindsym $super+d        exec "rofi -theme-str 'listview {lines: 12;} window {width: 800px;}' -show drun -sidebar-mode"
+bindsym $super+Shift+q  exec "rofi -theme-str 'listview {lines: 6;} window {width: 500px;}' -show power-menu -modi power-menu:rofi-power-menu"
 bindsym $super+n        exec python3 ~/.config/rofi/nmcli_rofi
 
 # greenclip

@@ -20,7 +20,6 @@ show=("${all[@]}")
 
 declare -A texts
 texts[lockscreen]="lock screen"
-texts[switchuser]="switch user"
 texts[logout]="log out"
 texts[suspend]="suspend"
 texts[hibernate]="hibernate"
@@ -28,18 +27,16 @@ texts[reboot]="reboot"
 texts[shutdown]="shut down"
 
 declare -A icons
-icons[lockscreen]="\uE94F"
-icons[switchuser]="\uE997"
-icons[logout]="\uE919"
-icons[suspend]="\uE927"
-icons[hibernate]="\uE90A"
-icons[reboot]="\uE979"
-icons[shutdown]="\uE972"
-icons[cancel]="\uE980"
+icons[lockscreen]=""
+icons[logout]=""
+icons[suspend]=""
+icons[hibernate]=""
+icons[reboot]=""
+icons[shutdown]=""
+icons[cancel]=""
 
 declare -A actions
 actions[lockscreen]="loginctl lock-session $XDG_SESSION_ID"
-#actions[switchuser]="???"
 actions[logout]="loginctl terminate-session $XDG_SESSION_ID"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
