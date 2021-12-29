@@ -8,27 +8,22 @@ general {
 order += "cpu_temperature 0"
 order += "cpu_usage"
 Order += "memory"
-#order += "disk /"
 order += "ethernet enp2s0"
 order += "volume master"
 order += "tztime local"
 
 cpu_temperature 0 {
-        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %degrees °C </span>"
+        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %degrees °C </span>"
         path = "/sys/class/hwmon/hwmon0/temp1_input"
 }
 
 cpu_usage {
-        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %usage </span>"
+        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %usage </span>"
 }
 
 memory {
-        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %used | %total </span>"
+        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %used | %total </span>"
 }
-
-#disk "/" {
-#        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %free Free </span>"
-#}
 
 ethernet enp2s0 {
         format_up = "<span background='#81a1c1'>  </span><span background='#d8dee9'> Connected </span>"
@@ -36,13 +31,13 @@ ethernet enp2s0 {
 }
 
 volume master {
-        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %volume </span>"
-        format_muted = "<span background='#81a1c1'>  </span><span background='#d8dee9'> Muted </span>"
+        format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %volume </span>"
+        format_muted = "<span background='#81a1c1'>  </span><span background='#d8dee9'> Muted </span>"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
 }
 
 tztime local {
-		format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %T - %A, %d %B %Y </span>"
+		format = "<span background='#81a1c1'>  </span><span background='#d8dee9'> %T - %A, %d %B %Y </span>"
 }

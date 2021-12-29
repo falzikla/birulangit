@@ -1,9 +1,9 @@
 configuration {
 	modi: "drun,run,window";
 	font: "Noto Sans 8";
-  timeout {
-      delay:  8;
-      action: "kb-cancel";
-  }
+    timeout {
+        delay:  8;
+        action: "kb-cancel";
+    }
 }
 @theme "nord.rasi"
