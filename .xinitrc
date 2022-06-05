@@ -40,7 +40,9 @@ fi
 
 betterlockscreen -w dim
 numlockx &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xset s off
 xset dpms 0 0 300
+setxkbmap -layout us,ara -variant  ,qwerty_digits -option grp:alt_shift_toggle
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+source ~/.profile
 exec i3

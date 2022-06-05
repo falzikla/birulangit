@@ -142,7 +142,7 @@ bar {
 
 # window rules, you can find the window class using xprop
 for_window [class=io.github.celluloid_player.Celluloid|Viewnior|Lxappearance|Pavucontrol|SimpleScreenRecorder|Bvnc|Nm-connection-editor|Xarchiver|Libfm-pref-apps] floating enable
-for_window [class=Bssh|Bvnc|qt5ct|qv4l2|feh|Warpinator] floating enable
+for_window [class=Bssh|Bvnc|qt5ct|qv4l2|feh|mpv|Warpinator] floating enable
 for_window [title=lstopo] floating enable
 for_window [class="^.*"] title_format "  %title"
 for_window [window_role="pop-up"] floating enable
